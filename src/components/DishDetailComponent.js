@@ -6,9 +6,7 @@ class Dishdetail extends Component{
     renderComments(comments){
         if(comments == null){
             return(
-                <div>
-
-                </div>
+                <div></div>
             );
         }
 
@@ -40,15 +38,13 @@ class Dishdetail extends Component{
     renderDish(dish){
         if (dish != null) {
             return(
-                
-                    <Card>
-                        <CardImg width="100%" top src={dish.image} alt={dish.name} />
+                <Card>
+                    <CardImg width="100%" top src={dish.image} alt={dish.name} />
                         <CardBody>
-                            <CardTitle>{dish.name}</CardTitle>
+                            <CardTitle><h4>{dish.name}</h4></CardTitle>
                             <CardText>{dish.description}</CardText>
                         </CardBody>
                     </Card>
-                
             );
         }
         else {
@@ -56,7 +52,7 @@ class Dishdetail extends Component{
             <div></div>
         )
     }
-}k
+}
 
     render(){
         const dish = this.props.dish
