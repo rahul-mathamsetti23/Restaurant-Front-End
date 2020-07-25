@@ -28,7 +28,7 @@ class Dishdetail extends Component{
             )
         })
         return (
-            <div className="col-12 col-md-12 m-1">
+            <div>
                 <h4>Comments</h4>
                 <ul className="list-unstyled">
                     {cmntsall}
