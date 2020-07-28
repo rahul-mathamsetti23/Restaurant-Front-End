@@ -22,11 +22,11 @@ class Header extends Component {
     render () {
         return(
             <>
-                <Navbar dark expand="md">
+                <Navbar dark expand="sm">
                     <div className="container">
                         <NavbarToggler onClick={this.toggleNav}/>
                         <NavbarBrand className="mr-right" href="/">
-                            <img src="assets/images/logo.png" height="30" width="41" alt="Ristornate Con Fusion" />
+                            <img src="./assets/images/logo.png" height="30" width="41" alt="Ristornate Con Fusion" />
                         </NavbarBrand>
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
