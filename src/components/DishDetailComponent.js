@@ -4,9 +4,10 @@ import { Card, CardImg,  CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbIt
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors,} from 'react-redux-form';
 import { Loading } from './Loading.Component';
+import { baseUrl } from '../shared/baseUrl';
 
 
-function RenderComments({comments, addComment, dishId}){
+function RenderComments({comments, postComment, dishId}){
     if(comments == null){
         return(
             <div></div>
@@ -34,7 +35,7 @@ function RenderComments({comments, addComment, dishId}){
             <h4>Comments</h4>
             <ul className="list-unstyled">
                 {cmntsall}
-                <CommentForm dishId={dishId} addComment={addComment}/>
+                <CommentForm dishId={dishId} postComment={postComment}/>
             </ul>
         </div>
     );
@@ -45,7 +46,7 @@ function RenderDish({dish}){
     if (dish != null) {
         return(
             <Card>
-                <CardImg width="100%" top src={dish.image} alt={dish.name} />
+                <CardImg width="100%" top src={baseUrl + dish.image} alt={dish.name} />
                     <CardBody>
                         <CardTitle><h4>{dish.name}</h4></CardTitle>
                         <CardText>{dish.description}</CardText>
@@ -101,7 +102,7 @@ const DishDetail = (props) => {
                 </div>
                 <div className="col-12 col-md-5 m-1">
                     <RenderComments comments={props.comments}
-                    addComment={props.addComment}
+                    postComment={props.postComment}
                     dishId={props.dish.id} 
                     />
                 </div>
@@ -142,7 +143,7 @@ class CommentForm extends Component {
 
     handleSubmit(values){
         this.toggleModal();
-        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment)
+        this.props.postComment(this.props.dishId, values.rating, values.author, values.comment)
     }
 
     render() {
